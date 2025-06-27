@@ -1,0 +1,38 @@
+ User Profile with File Upload and Session Tracking
+ Objective: Build a small application where users can upload a profile picture, enter details, and view their profile, using sessions to track user data and file handling to store information.
+ Task:
+ Create upload_form.php:
+ Start a session.
+ Include a form with:
+
+ Text input for fullname.
+File input for profile_picture (accept only .jpg, .png).
+ Submit button.
+ Set action to process_upload.php and method to POST with enctype="multipart/form-data".
+ Include header.php (from Task 2) for consistent styling.
+ Create process_upload.php:
+ Start a session.
+Validate:
+ fullname is not empty.
+ Uploaded file is a .jpg or .png and less than 2MB.
+  If validation fails, display: "Invalid input or file."
+If valid:
+
+
+Move the uploaded file to an uploads/ directory (create it manually if needed).
+Store fullname and file path in $_SESSION.
+Write the fullname and timestamp (date()) to a file profiles.txt using file_put_contents() with FILE_APPEND.
+Redirect to profile.php.
+
+
+Create profile.php:
+Start a session.
+Include header.php.
+Display: "Welcome, [fullname]! Your profile picture:" followed by the uploaded image (<img> tag).
+Read and display the contents of profiles.txt to show all saved profiles.
+Test: Submit the form, verify the file upload, session data, and profile display.
+Tips for Task 6:
+Use $_FILES for file uploads and move_uploaded_file() to save files.
+Research form validation and file upload security on W3Schools.
+Ensure the uploads/ directory has write permissions.
+Use isset() to check session and file variables.

@@ -1,0 +1,54 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <style>
+        body {
+         font-family: Arial;
+         padding: 20px; 
+         background:rgb(250, 247, 247); 
+        }
+
+        form {
+         background: #fff; 
+         padding: 20px;
+         border: 1px solid #dddddd; 
+         width: 300px; 
+         margin: 0 auto;
+        }
+
+        input {
+        width: 100%;
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        }
+        button {
+        width: 100%;
+        padding: 0.7rem;
+        background: #007bff;
+        color: white;
+        border: none;
+        margin-top: 1rem;
+        cursor: pointer;
+        }
+
+        input, button { margin-top: 6px; padding: 6px; font-size: 1em; }
+    </style>
+</head>
+<body>
+    <form action="process_upload.php" method="post" enctype="multipart/form-data">
+    <label for="name">fullname</label>
+    <input type="text" id="name" name="name" required>
+    <!-- <span class="error">* <?php echo $nameErr; ?></span> -->
+    <br><br>
+    <label  for="profile_picture">choose image</label>
+    <input type="file" id="profile_picture" name="profile_picture" accept=".jppg,.png" required>
+    <button type="submit">upload file</button>
+</form>
+</body>
+</html>
